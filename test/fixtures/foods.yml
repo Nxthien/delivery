@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  basicprice: 1
+  amount: 1
+  countorder: 1
+  bouns: 1
+  price: 1
+
+two:
+  name: MyString
+  basicprice: 1
+  amount: 1
+  countorder: 1
+  bouns: 1
+  price: 1
