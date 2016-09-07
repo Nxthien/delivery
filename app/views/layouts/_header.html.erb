@@ -1,0 +1,35 @@
+<div class="navbar navbar-default navbar-fixed">
+	<div class="container">
+		<div class="navbar-left">
+			<div class="brand">
+				<%= link_to image_tag("logo.png"), "/"%>
+			</div>
+			<div class="region">
+				<div class="btn-group">
+				  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Hà Nội <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu">
+					  <li><%= link_to "Hà Nội", "#" %></li>
+					  <li><%= link_to "TP.HCM", "#" %></li>
+					  <li><%= link_to "Đà Nẵng", "#" %></li>
+					  <li><%= link_to "Cần Thơ", "#" %></li>
+				  </ul>
+				</div>
+			</div>
+			<div class="list-text">
+				<ul>
+					<li><%= link_to "Tất cả", "#" %></li>
+					<li><%= link_to "Món chay", "#" %></li>
+					<li><%= link_to "Trái cây sạch", "#" %></li>
+					<li><%= link_to "Rượu vang", "#" %></li>
+				</ul>
+			</div>
+		</div>
+		<div class="navbar-right">
+			<div class="side-user">
+				<%= link_to "Đăng nhập", "/", class: "btn-login"%>
+			</div>
+		</div>
+	</div>
+</div>

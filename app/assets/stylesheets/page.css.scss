@@ -1,0 +1,76 @@
+.header{
+	.navbar{
+		margin-bottom: 0px;
+		background: white !important;
+		.navbar-left{
+			margin-top:5px; 
+			float: left;
+			.brand{
+				display: inline-block;
+			}
+			.region{
+				margin-left: 40px;
+				display: inline-block;
+				.btn-group{
+					button{
+						background: #f3f3f3;
+						border: none;
+					}
+					button:hover{
+						background: #f3f3f3;
+						border: none;
+					}
+					.dropdown-menu{
+						min-width: 100px;
+					}
+				}
+			}
+			.list-text{
+				display: inline-block;
+				ul{
+					list-style: none;
+					li{
+						a{
+							padding: 18px 10px;
+							color: #555;
+						}
+						display: inline-block;
+					}
+				}
+			}
+		}
+		.navbar-right{
+			.side-user{
+				cursor: auto;
+				padding: 0px 15px;
+		    height: 32px;
+		    line-height: 30px;
+		    border: 1px solid #cf2127;
+		    border-radius: 2px;
+		    margin-top: 5px;
+		    a{
+		    	color: #cf2127;
+		    }
+		    a:hover{
+		    	text-decoration: none;
+		    }
+			}
+			.side-user:hover{
+				background: #cf2127;
+				a{
+					color: white;
+				}
+				a:hover{
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+.main-content{
+	.banner-search{
+		height: 344px;
+		background:  url("banner.png");
+		background-size: cover;
+	}
+}
