@@ -1,0 +1,36 @@
+<div class="content">
+	<div class="panel-new">
+		<div class="title"><h2>EDIT RESTAURANT</h2></div>
+		<div class="form-restaurant col-xs-10 col-xs-offset-1"">
+			<%= simple_form_for Restaurant.find(res.id), url: admins_restaurant_path(res.id),method: "put" do |f| %>
+					<div class="region" style="width: 20%">
+						<select id="region" name="region" class="form-control">
+						  <option value="hn">Hà Nội</option>
+						  <option value="hcm">Hồ Chí Minh</option>
+						  <option value="dn">Đà Nẵng</option>
+						  <option value="ct">Cần Thơ</option>
+						  <option value="hp">Hải Phòng</option>
+						</select>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-xs-8">
+							<%= f.input :name, label: "Name" %>
+				 			<%= f.input :type_restaurant, label: "Type Restaurant"%>
+				  		<%= f.input :address, label: "Address", class: "st" %>
+						</div>
+						<div class="col-xs-4">
+							<%= f.input :time_open, label: "Time Open", class: "st" %>
+						  <%= f.input :time_close, label: "Time Close", class: "st" %>
+						  <%= f.input :price_range, label: "Price Range", class: "st"%>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				  <%= f.file_field :image, label: "Image"%>
+				  <br>
+				  <%= f.button :submit, label: "Add Restaurant" , class: " btn btn-primary"%>
+			<% end %>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>

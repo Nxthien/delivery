@@ -1,0 +1,95 @@
+.content{
+	margin: 15px;
+	.restaurant{
+		.navbar-control{
+			background: white;
+			padding: 20px 40px;
+			.pd-r{
+				padding-right: 5px;
+				display: inline-block;
+			}
+		}
+		.table-data{
+			background: white;
+			margin-top: 20px;
+			padding: 10px 10px ;
+			.data-restaurant:hover{
+				corsor: pointer;
+				
+			}
+			.data-restaurant{
+				.action{
+					padding-left: 0px;
+					list-style: none;
+					li{
+						display: inline-block;
+						a{
+							color: black;
+							i{
+								padding: 0px 3px;
+							}
+
+						}
+						a:hover{
+							text-decoration: none;
+							color: #E75857;
+						}
+						a:focus{
+							outline: none;
+						}
+					}
+				}
+			}
+		}
+		.detail-restaurant{
+			background: white	;
+			.content-info{
+				padding: 40px 0px ;
+				.title-header{
+					text-align: center;
+					margin-bottom: 30px;
+				}
+        .block{
+        	margin: 0px 30px;
+          .block-title{
+            span{
+            padding: 3px 20px;
+            background: #5bc0de;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            }
+          }
+          .block-content{
+            min-height: 20px;
+            padding: 19px;
+            margin-bottom: 20px;
+            background-color: whitesmoke;
+            border: 1px solid #e3e3e3;
+            border-radius: 4px;
+          }
+        }
+      }
+		}
+	}
+	.panel-new{
+		background: white;
+		padding: 20px;
+		.title{
+			text-align: center;
+		}
+		.form-restaurant{
+			.form-group{
+				input{
+					height: 40px;
+					border-radius: 0;
+				}
+				input:focus{
+					border-color: none;
+					box-shadow: none;
+					border: solid 1px #E75857;
+				}
+			}
+		}
+	}
+}

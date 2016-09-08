@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   root 'page#index'
   get 'admin' => 'admin#index'
   resources :admin
+  namespace :admins do
+  	resources :restaurants
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

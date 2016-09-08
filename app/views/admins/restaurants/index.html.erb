@@ -1,0 +1,73 @@
+<div class="content">
+	<div class="restaurant">
+		<div class="navbar-control">
+			<div class="add-restaurant pd-r">
+				<%= link_to "Add", new_admins_restaurant_path, class: "btn btn-success", data: {toggle: "modal", target:".bs-example-modal-lg"}%>
+				<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+				  <div class="modal-dialog modal-lg" role="document">
+				    <div class="modal-content">
+				      <%= render "/admins/restaurants/new"%>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="table-data">
+			<table class="table table-hover">
+		    <thead>
+		      <tr>
+		        <th style="width: 5%">ID</th>
+		        <th style="width: 15%">Name</th>
+		        <th style="width: 15%">Type Restaurant</th>
+		        <th style="width: 15%">Address</th>
+		        <th style="width: 10%">Time Open</th>
+		        <th style="width: 10%">Time Close</th>
+		        <th style="width: 10%">Price Range</th>
+		        <th style="width: 20%">Action</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <% @restaurants.each do |res| %>
+		      	<%= link_to "#", method: true, name: "res_id", value: res.id do %>
+			      	<tr class="data-restaurant" id="<%= res.id %>">
+			      		<td style="width: 5%"><%= res.id %></td>
+			      		<td style="width: 15%"><%= res.name %></td>
+			      		<td style="width: 15%"><%= res.type_restaurant %></td>
+			      		<td style="width: 15%"><%= res.address %></td>
+			      		<td style="width: 10%"><%= res.time_open %></td>
+			      		<td style="width: 10%"><%= res.time_close %></td>
+			      		<td style="width: 10%"><%= res.price_range %></td>
+			      		<td style="width: 20%">
+			      			<ul class="action">
+			      				<li>
+			      					<%= link_to admins_restaurant_path(res.id) do %>
+										    <i class="fa fa-info-circle" aria-hidden="true"></i>Show
+											<% end %>
+			      				</li>
+			      				<li>
+			      					<%= link_to "#", data: {toggle: "modal", target:"#bs-example-modal-lg"} do %>
+										    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit
+											<% end %>
+											<div class="modal fade" id="bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+											  <div class="modal-dialog modal-lg" role="document">
+											    <div class="modal-content">
+											      <%= render partial: "/admins/restaurants/edit", locals: { res: res } %>
+											    </div>
+											  </div>
+											</div>
+			      				</li>
+			      				<li>
+			      					<%= link_to admins_restaurant_path(res.id), method: 'delete', data: { confirm: "You sure?"} do %>
+										    <i class="fa fa-trash-o" aria-hidden="true"></i>Destroy
+											<% end %>
+			      				</li>
+			      			</ul>
+			      		</td>
+				      </tr>
+				    <% end %>
+		      <% end %>
+		    </tbody>
+		  </table>
+		</div>
+	</div>
+</div>
