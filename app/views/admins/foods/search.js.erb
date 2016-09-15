@@ -1,0 +1,7 @@
+<% if @types.present?%>
+	$(".foods .restaurant").remove();
+	$(".foods").html("<%= escape_javascript(render '/admins/foods/view') %>");
+<% else %>
+	alert("please choose restaurant");
+<% end  %>
+

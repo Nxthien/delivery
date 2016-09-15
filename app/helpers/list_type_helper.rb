@@ -1,0 +1,2 @@
+module ListTypeHelper
+end

@@ -31,6 +31,7 @@ gem "font-awesome-rails"
 gem 'carrierwave'
 gem 'simple_form'
 gem 'pry'
+gem "select2-rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'

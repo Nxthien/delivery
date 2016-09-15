@@ -1,0 +1,46 @@
+<div class="content">
+	<div class="restaurant">
+		<div class="detail-restaurant">
+			<div class="content-info">
+			  <div class="title-header">
+					<%= link_to "Type Manager" , admins_restaurant_list_type_foods_path(params[:restaurant_id],@type), class: "btn btn-info link-manager"%>
+			  	<div class="title">
+				  	<h2>Basic Info</h2>
+			  	</div>
+			  </div>
+			  <dl class="block">
+			    <dt class="block-title">
+			      <span>ID</span>
+			    </dt>
+			    <dd class="block-content">
+			      <%= @type.id %>
+			    </dd>
+			  </dl>
+			  <dl class="block">
+			    <dt class="block-title">
+			      <span>Name</span>
+			    </dt>
+			    <dd class="block-content">
+			      <%= @type.name %>
+			    </dd>
+			  </dl>
+			  <dl class="block">
+			    <dt class="block-title">
+			      <span>Type Food</span>
+			    </dt>
+			    <dd class="block-content">
+			      <%= @type.type_food %>
+			    </dd>
+			  </dl>
+			  <dl class="block">
+			    <dt class="block-title">
+			      <span>List Food</span>
+			    </dt>
+			    <dd class="block-content">
+						Coming Soon
+				  </dd>
+			  </dl>
+			</div>
+		</div>
+	</div>
+</div>

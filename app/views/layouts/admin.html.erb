@@ -13,11 +13,16 @@
       <%= render "/layouts/header_admin"%>
     </div>
     <div class="main-admin">
+
       <div class="row">
         <div class="side-bar col-xs-2">
           <%= render '/layouts/sidebar_admin'%>
         </div>
         <div class="main-content col-xs-10">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>" style="margin-top: 15px;
+    margin-left: 15px;"><%= message %></div>
+          <% end %>
           <%= yield %>
         </div>
       </div>

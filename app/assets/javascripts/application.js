@@ -16,3 +16,5 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap-sprockets
+//= require select2
+//= require select2-full

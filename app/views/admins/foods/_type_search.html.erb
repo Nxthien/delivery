@@ -1,0 +1,7 @@
+<div class="type-search">
+	<% if @types.present? %>
+		<div class="label-search">Type</div>
+		<br>
+			<%= select_tag 'list_type_id', options_for_select(@types.collect{ |type| [type.name, type.id] } ) ,class: "form-control"%>	
+	<% end %>
+</div>

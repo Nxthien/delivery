@@ -28,7 +28,28 @@
 		</div>
 		<div class="navbar-right">
 			<div class="side-user">
-				<%= link_to "Đăng nhập", "/", class: "btn-login"%>
+				<% if current_user.present?%>
+					<%= link_to "Name", "" %>
+				<% else %>
+					<%#= link_to "Đăng nhập", "#", class: "btn-login", data: { toggle: 'modal', target:'#modal-login'} %>
+					<button type="button" class="btn btn-login" data-toggle="modal" data-target="#modal-login">Open Modal</button>
+			 	 	<div class="modal fade" id="modal-login" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					      </div>
+					      <div class="modal-body">
+					        ...
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        <button type="button" class="btn btn-primary">Save changes</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>

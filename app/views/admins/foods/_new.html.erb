@@ -1,0 +1,28 @@
+<div class="content">
+	<div class="panel-new">
+		<div class="title"><h2>ADD RESTAURANT</h2></div>
+		<div class="form-restaurant">
+			<%= simple_form_for Food.new, url: admins_restaurant_list_type_foods_path(params[:restaurant_id], params[:list_type_id]), method: 'post' do |f| %>
+					<div class="row">
+						<%= f.hidden_field :restaurant_id, value: res.id%>
+						<%= f.hidden_field :listtype_id, value: type.id%>
+						<div class="col-xs-8">
+							<%= f.input :name, label: "Name" %>
+				 			<%= f.input :basicprice, label: "Basic Price"%>
+				  		<%= f.input :amount, label: "Amount"%>
+						</div>
+						<div class="col-xs-4">
+							<%= f.input :countorder, label: "Count Order"%>
+						  <%= f.input :bouns, label: "Bouns"%>
+						  <%= f.input :price, label: "Price", class: "st"%>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				  <%= f.file_field :image, label: "Image"%>
+				  <br>
+				  <%= f.button :submit, label: "Add Food" , class: " btn btn-primary"%>
+			<% end %>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>

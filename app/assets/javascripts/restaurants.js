@@ -13,4 +13,19 @@ $( document ).ready(function() {
   	// $(".link-edit").attr('href', link2+res_id);
   	// $(".link-del").attr('href', link3+res_id);
   });
+  $("#restaurant_id").on("change",function(){
+    var getValue = $(this).val() ;
+    $.get( "/admins/foods/find?restaurant_id="+getValue, function( data ) {
+      var items = [];
+      $.each(data, function(key ,val){
+        alert("dsds");
+        console.log(data);
+      });
+     
+      // $( "<ul/>", {
+      //   "class": "my-new-list",
+      //   html: items.join( "" )
+      // }).appendTo( "body" );
+    });
+  });
 });

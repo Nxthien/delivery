@@ -41,27 +41,20 @@
 		}
 		.navbar-right{
 			.side-user{
-				cursor: auto;
-				padding: 0px 15px;
-		    height: 32px;
-		    line-height: 30px;
-		    border: 1px solid #cf2127;
-		    border-radius: 2px;
-		    margin-top: 5px;
-		    a{
+				.btn-login{
+					cursor: auto;
+					padding: 0px 15px;
+			    height: 32px;
+			    line-height: 30px;
+			    border: 1px solid #cf2127;
+			    border-radius: 2px;
+			    margin-top: 5px;
 		    	color: #cf2127;
-		    }
-		    a:hover{
-		    	text-decoration: none;
-		    }
-			}
-			.side-user:hover{
-				background: #cf2127;
-				a{
-					color: white;
+		    	background: white ;
 				}
-				a:hover{
-					text-decoration: none;
+				.btn-login:hover{
+					background: #cf2127;
+					color: white;
 				}
 			}
 		}

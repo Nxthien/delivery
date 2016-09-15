@@ -1,0 +1,21 @@
+<div class="content">
+	<div class="panel-top">
+		<div class="search">
+			<%= form_tag admins_search_path , method: "post", remote: true  do |f| %>
+			<div class="form-search">
+				<%= select_tag 'restaurant_id', options_for_select(@res.collect{ |restaurant| [restaurant.name, restaurant.id] } ) ,class: "form-control"%>	
+			</div>
+			<br>
+			<div class="btn-search">
+				<%= submit_tag "Search Restaurant", class: "btn btn-primary" %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="data types">
+		<%= render "/admins/list_types/data"%>
+	</div>
+</div>
+<script>
+  $(document).ready(function() { $("#restaurant_id").select2(); });
+</script>

@@ -1,0 +1,17 @@
+<div class="content">
+	<div class="panel-new">
+		<div class="title"><h2>ADD Type</h2></div>
+		<div class="form-restaurant">
+			<%= simple_form_for Listtype.new, url: admins_restaurant_list_types_path(res.id), method: 'post' do |f| %>
+						<div class="row">
+							<%= f.hidden_field :restaurant_id, value: res.id%>
+							<%= f.input :name, label: "Name" %>
+				 			<%= f.input :type_food, label: "Type Food"%>
+						</div>
+				  <br>
+				  <%= f.button :submit, label: "Add Restaurant" , class: " btn btn-primary"%>
+			<% end %>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
