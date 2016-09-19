@@ -35,8 +35,7 @@ set :deploy_to, '/www/deploy/delivery'
 # set :keep_releases, 5
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
-set :passenger_environment_variables, { :path => '/path-to-passenger/bin:$PATH' }
-set :passenger_restart_command, '/path-to-passenger/bin/passenger-config restart-app'
+
 set :ssh_options, {
   keys: %w(/freetier.pem),
   forward_agent: false,
