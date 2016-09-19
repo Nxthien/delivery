@@ -1,5 +1,5 @@
 # config valid only for Capistrano 3.1
-lock '3.1.0'
+lock '3.6.1'
 
 set :application, 'delivery'
 set :repo_url, 'git@bitbucket.org:nxthien58/delivery.git'
@@ -36,11 +36,7 @@ set :deploy_to, '/www/deploy/delivery'
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
-set :ssh_options, {
-  keys: %w(/freetier.pem),
-  forward_agent: false,
-  auth_methods: %w(publickey password)
-}
+
 namespace :deploy do
 
   after :restart, :clear_cache do

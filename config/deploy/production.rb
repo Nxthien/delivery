@@ -15,6 +15,11 @@ role :db,  %w{54.37.18.34}
 # something that quacks like a hash can be used to set
 # extended properties on the server.
 server '54.37.18.34', user: 'ubuntu', roles: %w{web app}, my_property: :my_value
+set :ssh_options, {
+  keys: %w(~/Desktop/freetier.pem),
+  forward_agent: false,
+  auth_methods: %w(publickey password)
+}
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
