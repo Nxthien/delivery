@@ -4,9 +4,9 @@
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
-role :app, %w{54.37.18.34}
-role :web, %w{54.37.18.34}
-role :db,  %w{54.37.18.34}
+role :app, %w{52.37.18.34}
+role :web, %w{52.37.18.34}
+role :db,  %w{52.37.18.34}
 
 # Extended Server Syntax
 # ======================
@@ -14,7 +14,7 @@ role :db,  %w{54.37.18.34}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '54.37.18.34', user: 'ubuntu', roles: %w{web app}, my_property: :my_value
+server '52.37.18.34', user: 'ubuntu', roles: %w{web app}
 set :ssh_options, {
   keys: %w(~/Desktop/freetier.pem),
   forward_agent: false,

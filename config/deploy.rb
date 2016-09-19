@@ -3,7 +3,6 @@ lock '3.6.1'
 
 set :application, 'delivery'
 set :repo_url, 'git@bitbucket.org:nxthien58/delivery.git'
-
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 

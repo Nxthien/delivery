@@ -32,6 +32,7 @@ gem 'carrierwave'
 gem 'simple_form'
 gem 'pry'
 gem "select2-rails"
+gem 'passenger'
 
 
 # Use Capistrano for deployment
