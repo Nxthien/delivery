@@ -32,19 +32,19 @@
 					<%= link_to "Name", "" %>
 				<% else %>
 					<%#= link_to "Đăng nhập", "#", class: "btn-login", data: { toggle: 'modal', target:'#modal-login'} %>
-					<button type="button" class="btn btn-login" data-toggle="modal" data-target="#modal-login">Open Modal</button>
+					<button type="button" class="btn btn-login" data-toggle="modal" data-target="#modal-login">Đăng nhập</button>
 			 	 	<div class="modal fade" id="modal-login" role="dialog" aria-labelledby="myModalLabel">
 					  <div class="modal-dialog" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-					      </div>
+					    <div class="modal-content panel-content" style="width: 70%;margin-left:10%;">
+<!-- 					      <div class="modal-header">
+					      </div> -->
 					      <div class="modal-body">
-					        ...
-					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					        <button type="button" class="btn btn-primary">Save changes</button>
+					      	<div class="login">
+					        	<%= render "/layouts/login" %>
+					      	</div>
+					      	<div class="register hide">
+					      		<%= render "/layouts/register"%>
+					      	</div>
 					      </div>
 					    </div>
 					  </div>
@@ -54,3 +54,14 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	function register(){
+		console.log("dsd");
+		$(".login").addClass("hide");
+		$(".register").removeClass("hide");
+	};
+	function backtoLogin(){
+		$(".register").addClass("hide");
+		$(".login").removeClass("hide");
+	};
+</script>

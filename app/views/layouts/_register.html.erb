@@ -1,0 +1,19 @@
+<div class="panel-res">
+  <div class="title">Đăng ký tài khoản</div>
+  <%= simple_form_for  User.new, url: user_registration_path, method: "post" do |f| %>
+    <div class="field input-field">
+      <%= f.text_field :name ,placeholder: "Tên"%>
+    </div>
+    <div class="field input-field">
+      <%= f.email_field :email, autofocus: true , placeholder: "Email"%>
+    </div>
+
+    <div class="field input-field">
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Mật khẩu" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Đăng Ký" %>
+    </div>
+    <p style="margin-top: 40px;">Bạn đã có tài khoản? Nhấn <a onclick="backtoLogin()">vào đây</a> để đăng nhập</p>
+  <% end %>
+</div>

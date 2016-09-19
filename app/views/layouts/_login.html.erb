@@ -1,26 +1,32 @@
-<h2>Log in</h2>
-
-<%= simple_form_for  :session, url: new_user_session_path do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="panel-login">
+  <div class="title">Đăng nhập bằng email</div>
+  <%= simple_form_for  :session, url: new_user_session_path do |f| %>
+    <div class="field input-field">
+      <%= f.email_field :email, autofocus: true , placeholder: "Email hoặc Username"%>
     </div>
-  <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+    <div class="field input-field">
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Mật khẩu" %>
+    </div>
 
-<%= render "users/shared/links" %>
+    <div class="forgot-password">
+      <%= link_to "Quên mật khẩu ?", new_password_path(resource_name) %><br />
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Đăng nhập" %>
+    </div>
+    <hr>
+    <div class="label-or">
+      <div class="or">HOẶC</div>
+    </div>
+    <div class="social">
+      <ul class="social-icon">
+        <li><%= link_to image_tag("fb.png"), "#" %> </li>
+        <li><%= link_to image_tag("gg.png"), "#" %> </li>
+      </ul>
+    </div>
+    <p>Bạn chưa có tài khoản? Nhấn <a 
+    onclick="register()">vào đây</a> để đăng ký và bắt đầu trải nghiệm dịch vụ.</p>
+  <% end %>
+</div>
