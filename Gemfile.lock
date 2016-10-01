@@ -139,6 +139,8 @@ GEM
       slop (~> 3.4)
     puma (3.6.0)
     rack (2.0.1)
+    rack-mini-profiler (0.10.1)
+      rack (>= 1.2.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0.1)
@@ -240,10 +242,12 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  nokogiri
   passenger
   pg (~> 0.18)
   pry
   puma (~> 3.0)
+  rack-mini-profiler
   rails (~> 5.0.0)
   sass-rails (~> 5.0)
   select2-rails

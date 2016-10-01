@@ -33,7 +33,8 @@ gem 'simple_form'
 gem 'pry'
 gem "select2-rails"
 gem 'passenger'
-
+gem 'rack-mini-profiler'
+gem 'nokogiri'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

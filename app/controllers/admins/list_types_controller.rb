@@ -6,7 +6,7 @@ class Admins::ListTypesController < ApplicationController
 	end
 	def home
 		@res = Restaurant.all
-		@list_types = Listtype.all
+		#@list_types = Listtype.all
 	end
 	def search
 		@res = Restaurant.find(params[:restaurant_id])

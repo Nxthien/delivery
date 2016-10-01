@@ -2,14 +2,13 @@ class Admins::RestaurantsController < ApplicationController
 	layout "admin"
 	def index
 		@restaurants = Restaurant.all
-		render json: @restaurants.to_json
 	end
-	
+
 	def show
 		@restaurant = Restaurant.find(params[:id])
 	end
 	def new
-		@restaurant = Restaurant.new		
+		@restaurant = Restaurant.new
 	end
 	def edit
 		@restaurant = Restaurant.find(params[:id])
@@ -35,7 +34,7 @@ class Admins::RestaurantsController < ApplicationController
 			flash[:success] = "Updated Restaurant"
 			redirect_to admins_restaurants_path
 		else
-			flash[:danger] = "Update Restaurant Fail" 
+			flash[:danger] = "Update Restaurant Fail"
 			redirect_to edit_admins_restaurant_path
 		end
 	end
@@ -43,6 +42,6 @@ class Admins::RestaurantsController < ApplicationController
 	private
 
 	def res_params
-		params.require(:restaurant).permit(:region, :name, :type_restaurant, :address, :time_open, :time_close, :price_range)
+		params.require(:restaurant).permit(:name, :type_restaurant, :address, :time_open, :time_close, :price_range, :image, :type_food )
 	end
 end

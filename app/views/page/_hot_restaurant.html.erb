@@ -1,0 +1,30 @@
+<div class="hot-restaurant">
+	<% @restaurants.each_slice(3) do | res | %>
+	  <div class="row">
+	  <% res.each do |r|%>
+		  <div class="col-xs-6 col-md-4 item">
+		    <div class="thumbnail">
+		      <%= image_tag r.coverimage %>
+		      <div class="caption">
+		        <div class="name">
+		        	<h4><%= r.name%></h4>
+		        </div>
+		        <div class="address">
+		        	<% if r.address.length < 45 %>
+		      			<%= r.address %>
+		      		<% else %>
+		      			<%= r.address.slice(0..40)%>...
+		      		<% end%>
+		     		</div>
+		     		<div class="type-restaurant">
+		     			<%= r.type_restaurant %>
+		     		</div>
+		      </div>
+		      
+		    </div>
+		  </div>
+		<% end %>
+	  </div>
+	<% end %>
+  <div class="clearfix"></div>
+</div>

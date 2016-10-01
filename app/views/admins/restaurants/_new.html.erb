@@ -2,31 +2,33 @@
 	<div class="panel-new">
 		<div class="title"><h2>ADD RESTAURANT</h2></div>
 		<div class="form-restaurant">
-			<%= simple_form_for Restaurant.new, url: admins_restaurants_path, method: 'post' do |f| %>
-					<div class="region" style="width: 20% ">
-						<select id="region" name="region" class="form-control">
+			<%= simple_form_for :restaurant , url: admins_restaurants_path, method: 'post' do |f| %>
+					<!-- <div class="region" style="width: 20% ">
+						<select id="region" name="restaurant[region]" class="form-control">
 						  <option value="1">Hà Nội</option>
 						  <option value="2">Hồ Chí Minh</option>
 						  <option value="3">Đà Nẵng</option>
 						  <option value="4">Cần Thơ</option>
 						  <option value="5">Hải Phòng</option>
 						</select>
-					</div>
+					</div> -->
 					<br>
 					<div class="row">
 						<div class="col-xs-8">
 							<%= f.input :name, label: "Name" %>
 				 			<%= f.input :type_restaurant, label: "Type Restaurant"%>
 				  		<%= f.input :address, label: "Address", class: "st" %>
+							<%= f.input :type_food, label: "Type Food"%>
 						</div>
 						<div class="col-xs-4">
 							<%= f.input :time_open, label: "Time Open", class: "st" %>
 						  <%= f.input :time_close, label: "Time Close", class: "st" %>
 						  <%= f.input :price_range, label: "Price Range", class: "st"%>
+							<br>
+							<%= f.file_field :image, label: "Image"%>
 						</div>
 						<div class="clearfix"></div>
 					</div>
-				  <%= f.file_field :image, label: "Image"%>
 				  <br>
 				  <%= f.button :submit, label: "Add Restaurant" , class: " btn btn-primary"%>
 			<% end %>

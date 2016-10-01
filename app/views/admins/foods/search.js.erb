@@ -1,4 +1,4 @@
-<% if @types.present?%>
+<% if @foods.present?%>
 	$(".foods .restaurant").remove();
 	$(".foods").html("<%= escape_javascript(render '/admins/foods/view') %>");
 <% else %>

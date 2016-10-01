@@ -7,15 +7,14 @@ class Admins::FoodsController < ApplicationController
 	end
 	def home
 		@ress = Restaurant.all
-		@foods = Food.all
 		# if params[:value].present?
 		# 	respond_to do |format|
 		# 		format.html
 		# 		@types = Listtype.find(params[:value])
 		# 		format.js { render :json => @types }
-		# 	end 	
+		# 	end
 		# end
-		
+
 	end
 	def find_type
 		@res = Restaurant.find(params[:restaurant_id])
@@ -23,7 +22,7 @@ class Admins::FoodsController < ApplicationController
 
 	end
 	def show
-		@food = Food.find(params[:id])	
+		@food = Food.find(params[:id])
 	end
 	def search
 		if params[:list_type_id]
@@ -47,10 +46,10 @@ class Admins::FoodsController < ApplicationController
 		if @food.save
 			flash[:success] = "Created Food"
 			redirect_to admins_restaurant_list_type_foods_path(params[:restaurant_id], params[:list_type_id])
-		else	
+		else
 			flash[:danger] = "Created Food Fail"
 			redirect_to admins_restaurant_list_type_foods_path(params[:restaurant_id], params[:list_type_id])
-		end	
+		end
 	end
 	def destroy
 		@food = Food.find(params[:id]).destroy
