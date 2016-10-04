@@ -2,7 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 task :crawl => :environment do
   n = 1
-  while n < 10
+  while n < 16
     html = open("https://www.deliverynow.vn/ha-noi/danh-sach-dia-diem-giao-tan-noi-trang-#{n}").read
     nokogiri_object = Nokogiri::HTML(html)
     nokogiri_object.css("#list-page .container-list-restaurant .widget-list-restaurant").each do |restaurant|

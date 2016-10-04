@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928060038) do
+ActiveRecord::Schema.define(version: 20161004050535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,14 +40,15 @@ ActiveRecord::Schema.define(version: 20160928060038) do
     t.string   "image"
     t.string   "crawl_image"
     t.string   "description"
+    t.index ["id"], name: "index_foods_on_id", using: :btree
     t.index ["listtype_id"], name: "index_foods_on_listtype_id", using: :btree
   end
 
   create_table "listtypes", force: :cascade do |t|
     t.string   "name"
-    t.string   "type_food"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "type_food",     default: [],              array: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "restaurant_id"
     t.integer  "cart_id"
     t.index ["cart_id"], name: "index_listtypes_on_cart_id", using: :btree

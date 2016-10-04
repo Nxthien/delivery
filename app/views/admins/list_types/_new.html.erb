@@ -6,7 +6,22 @@
 						<div class="row">
 							<%= f.hidden_field :restaurant_id, value: res.id%>
 							<%= f.input :name, label: "Name" %>
-				 			<%= f.input :type_food, label: "Type Food"%>
+							<center><strong><h4>Type Food</h4></strong></center>
+							<br>
+							<table>
+						 		<% @types_name.each_slice(4) do |type| %>
+		 							<tr>
+		 							<% type.each do |t|%>
+		 								<td class="col-xs-3">
+			 								<div class="checkbox">
+									  		<label><input type="checkbox" name= "type_foods[]" value="<%= t %>"><%= t %></label>
+										</div>
+										</td>
+									<% end %>
+									</tr>
+						 		<% end %>
+						 	</table>
+				 			<div class="clearfix"></div>
 						</div>
 				  <br>
 				  <%= f.button :submit, label: "Add Restaurant" , class: " btn btn-primary"%>
