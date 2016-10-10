@@ -1,5 +1,6 @@
 .header{
 	.navbar{
+		border-right: solid 1px #eee;
 		margin-bottom: 0px;
 		background: white !important;
 		.navbar-left{
@@ -7,6 +8,10 @@
 			float: left;
 			.brand{
 				display: inline-block;
+				img{
+					width: 100px;
+					height: 30px;
+				}
 			}
 			.region{
 				margin-left: 40px;
@@ -270,6 +275,32 @@
 			background:  #fff;
 	    padding: 20px;
 	    text-align: center;
+		}
+		.hot-foods{
+			margin-top: 20px;
+			ul{
+				border: none;
+				li{
+					padding-right: 50px;
+					font-size: 16px;
+					text-transform: uppercase;
+					font-weight: 400;	
+					a{
+						color: #585d64;
+					}
+					a:hover{
+						border: none !important;
+						background-color: #f2f2f2 !important;
+					}
+				}
+				li.active{
+					a{
+						border: none !important;
+						background-color: #f2f2f2 !important;
+						color: #cf2127;
+					}
+				}
+			}
 		}
 	}
 }

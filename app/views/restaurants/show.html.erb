@@ -1,0 +1,88 @@
+<div class="main-restaurant">
+	<div class="restaurant-block">
+		<div class="row">
+			<div class="restaurant-cover col-md-6">
+				<%= image_tag @restaurant.coverimage ,width: "580px", height: "280px"%>
+			</div>
+			<div class="restaurant-info col-md-6">
+				<div class="type-food">
+					<%= @restaurant.type_restaurant %>
+				</div>
+				<div class="restaurant-name">
+					<%= @restaurant.name %>
+				</div>
+				<div class="restaurant-address">
+					<p style="margin: 20px 0px ; color: #464646;"><%= @restaurant.address %> </p>
+				</div>
+				<div class="restaurant-range" style="color: #a1a1a1">
+					<span class="time" style="padding-right: 20px">
+						<i class="fa fa-clock-o" aria-hidden="true" style="padding-right: 10px"></i><%= @restaurant.time_open %> - <%= @restaurant.time_close %>
+					</span>
+					<span class="price-range" style="padding-right: 20px">
+						<i class="fa fa-money" aria-hidden="true" style="padding-right: 10px"></i><%= @restaurant.price_range %>
+					</span>
+				</div>
+				<hr>
+				<div class="delivery"> 
+					<table>
+						<thead>
+							<tr>
+								<th>TỐI THIỂU <i class="fa fa-headphones" aria-hidden="true"></i> </th>
+								<th>PHÍ VẬN CHUYỂN <i class="fa fa-money" aria-hidden="true"></i></th>
+								<th>GIAO HÀNG <i class="fa fa-car" aria-hidden="true"></i></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>100,000 đ</td>
+								<td>5,000 đ/km</td>
+								<td>Quán tự giao</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="container-content">
+		<div class="content-restaurant">
+			<div class="all-info-restaurant col-md-9">
+				<ul class="nav nav-tabs">
+				  <li class="active"><a data-toggle="tab" href="#menu">THỰC ĐƠN</a></li>
+				  <li><a data-toggle="tab" href="#intro">GIỚI THIỆU</a></li>
+				  <li><a data-toggle="tab" href="#sale">KHUYẾN MẠI</a></li>
+				</ul>
+
+				<div class="tab-content">
+				  <div id="menu" class="tab-pane fade in active">
+				    <div class="type-food col-md-3">
+				    	<ul>
+				    		<% @types.each do |t| %>
+				    			<li><a href="<%= t.id%>"> <%= t.name%></a></li>
+				    	 	<% end %>
+				    	</ul>
+				    </div>
+				    <div class="list-food col-md-9">
+				    	
+				    </div>
+				    <div class="clearfix"></div>
+				  </div>
+				  <div id="intro" class="tab-pane fade">
+				    <h3>Menu 1</h3>
+				    <p>Some content in menu 1.</p>
+				  </div>
+				  <div id="sale" class="tab-pane fade">
+				    <h3>Menu 2</h3>
+				    <p>Some content in menu 2.</p>
+				  </div>
+				</div>
+			</div>
+			<div class="container-bill col-md-3">
+				
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>

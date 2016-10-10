@@ -12,6 +12,6 @@ types_name = ["Ăn sáng","Ăn trưa","Ăn xế","Ăn tối","Ăn vặt & Ăn nh
 	    "Trà sữa ngon"]
 Listtype.all.each do |type|
 	
-	type.update_attributes(type_food: types_name.sample(2) )
-	binding.pry
+	type.update_attributes(type_food: types_name.sample(3) )
+	puts "Done"
 end

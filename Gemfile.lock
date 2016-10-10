@@ -132,7 +132,12 @@ GEM
       rack
       rake (>= 0.8.1)
     pg (0.18.4)
+    pg_array_parser (0.0.9)
     pkg-config (1.1.7)
+    postgres_ext (3.0.0)
+      activerecord (>= 4.0.0)
+      arel (>= 4.0.1)
+      pg_array_parser (~> 0.0.9)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -245,6 +250,7 @@ DEPENDENCIES
   nokogiri
   passenger
   pg (~> 0.18)
+  postgres_ext
   pry
   puma (~> 3.0)
   rack-mini-profiler

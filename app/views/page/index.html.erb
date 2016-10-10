@@ -18,6 +18,30 @@
 			Xem Thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 		</div>
 		<div class="hot-foods">
+			<ul class="nav nav-tabs">
+		  	<li class="active"><a data-toggle="tab" href="#breakfast">Ăn sáng</a></li>
+			  <li><a data-toggle="tab" href="#lunch">Ăn trưa</a></li>
+			  <li><a data-toggle="tab" href="#light">Ăn nhẹ</a></li>
+			  <li><a data-toggle="tab" href="#dinner">Ăn tối</a></li>
+			</ul>
+
+			<div class="tab-content">
+			  <div id="breakfast" class="tab-pane fade in active">
+			    <%= render "/page/breakfast"%>
+			  </div>
+			  <div id="lunch" class="tab-pane fade">
+			    <%= render "/page/lunch" %>
+			  </div>
+			  <div id="light" class="tab-pane fade">
+			    <%= render "/page/light" %>
+			  </div>
+			  <div id="dinner" class="tab-pane fade">
+			    <%= render "/page/dinner" %>
+			  </div>
+			</div>
+		</div>
+		<div class="view-more">
+			Xem Thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 		</div>
 	</div>
 </div>

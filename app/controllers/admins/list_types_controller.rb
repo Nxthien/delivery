@@ -17,7 +17,6 @@ class Admins::ListTypesController < ApplicationController
 		@type = Listtype.find(params[:id ])
 	end
 	def create
-		binding.pry
 		@type = Listtype.new(type_params)
 		if @type.save
 			flash[:success] = "Create A Type Food"

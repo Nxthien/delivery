@@ -1,0 +1,97 @@
+// Place all the styles related to the restaurants controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// page show
+
+.main-restaurant{
+	background: white !important;
+	.restaurant-block{
+		padding-top: 30px;
+		padding-bottom: 50px;
+		width: 1170px;
+		margin: auto;	
+		.restaurant-cover{
+			img{
+				border-radius: 5px;
+			}
+		}
+		.restaurant-info{
+			.type-food{
+				text-transform: uppercase;
+		    font-size: 11px;
+		    color: #a1a1a1;
+		    margin-top: 20px;
+		    margin-bottom: 10px;
+		    font-weight: 400;
+			}
+			.restaurant-name{
+				font-size: 22px;
+				font-weight: 700;
+			}
+			.delivery{
+				table{
+					line-height: 2;
+					tr{
+						th{
+							font-weight: 300;
+	    				padding-right: 15px;
+	    				color: #a1a1a1;
+						}
+					}
+				}
+			}
+		}
+	}
+	.container-content{
+		background: #f2f2f2;
+		.content-restaurant{
+			width: 1170px;
+			margin:auto;
+			.all-info-restaurant{
+				ul{
+					border: none;
+					li{
+						padding-right: 20px;
+						font-size: 13px;
+						text-transform: uppercase;
+						font-weight: 400;	
+						a{
+							color: #585d64;
+						}
+						a:hover{
+							border: none !important;
+							background-color: #f2f2f2 !important;
+						}
+					}
+					li.active{
+						a{
+							border: none !important;
+							background-color: #f2f2f2 !important;
+							color: #cf2127;
+						}
+					}
+				}
+				.tab-content{
+					.type-food{
+						background: white;
+						padding: 10px;
+						ul{
+							padding: 10px;
+					    list-style: none;
+					    line-height: 33px;
+					    color: #636363;
+					    li{
+					    	a:hover{
+						    	text-decoration: none;
+						    	color: #cf2127;
+						    	background-color: white !important;
+					    	}
+					    }
+						}
+					}
+				}
+			}
+		}
+	}
+}

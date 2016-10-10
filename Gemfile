@@ -35,7 +35,7 @@ gem "select2-rails"
 gem 'passenger'
 gem 'rack-mini-profiler'
 gem 'nokogiri'
-
+gem 'postgres_ext'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
