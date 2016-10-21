@@ -49,47 +49,190 @@
 			width: 1170px;
 			margin:auto;
 			.all-info-restaurant{
-				ul{
-					border: none;
-					li{
-						padding-right: 20px;
-						font-size: 13px;
-						text-transform: uppercase;
-						font-weight: 400;	
-						a{
-							color: #585d64;
+				position: relative;
+				.menu-content{
+					ul{
+						border: none;
+						li{
+							padding-right: 20px;
+							font-size: 13px;
+							text-transform: uppercase;
+							font-weight: 400;	
+							a{
+								color: #585d64;
+							}
+							a:hover{
+								border: none !important;
+								background-color: #f2f2f2 !important;
+							}
 						}
-						a:hover{
-							border: none !important;
-							background-color: #f2f2f2 !important;
+						li.active{
+							a{
+								border: none !important;
+								background-color: #f2f2f2 !important;
+								color: #cf2127;
+							}
 						}
 					}
-					li.active{
-						a{
-							border: none !important;
-							background-color: #f2f2f2 !important;
-							color: #cf2127;
+					.tab-content{
+						.fixed{
+							position: fixed;
+							top: 20px;
+						}
+						.pull-left{
+							left: 29.4%;
+						}
+						.type-food{
+							width: 250px;
+							background: white;
+							padding: 10px;
+							ul{
+								padding: 10px;
+						    list-style: none;
+						    line-height: 33px;
+						    color: #636363;
+						    li{
+						    	a:hover{
+							    	text-decoration: none;
+							    	color: #cf2127;
+						    	}
+						    	a{
+						    		padding: 0px 10px !important;
+						    	}
+						    }
+
+							}
+						}
+						.list-food{
+							width: 597px;
+							.detail-kind-menu{
+								padding: 15px;
+								background: white;
+								.kind-of-food{
+									text-transform: uppercase;
+							    color: #666;
+							    font-size: 14px;
+							    padding: 5px 0 0;
+								}
+								.type-list{
+									.box-menu-detail{
+										.bottom{
+											margin-bottom: 10px !important;
+											margin-top: 10px !important ;
+										}
+										.img-detail{
+											padding-left: 0px !important ;
+										}
+										.name-food-detail{
+											padding-right: 0px !important;
+									    padding-left: 35px;
+									    line-height: 10px;
+									    .title-name-food{
+												color: #464646;
+										    font-weight: 400;
+										    font-size: 17px;
+										    display: block;
+									    }
+									    .count-order{
+									    	font-size: 11px;
+									    	color: #a1a1a1;
+									    	strong{
+									    		color: black;
+									    		font-size: 13px;
+									    	}
+									    }
+									    .add-cart{
+									    	display: inline-block;
+									    	width: 22px;
+										    height: 22px;
+										    border-radius: 5px;
+										    text-align: center;
+										    line-height: 18px;
+										    background: #cf2127;
+										    color: white;
+										    font-size: 20px;
+										    font-weight: 700;
+										    cursor: pointer !important;
+									    }
+									    .add-cart:hover{
+									    	text-decoration: none;
+									    }
+										}
+									}
+								}
+							}
 						}
 					}
 				}
-				.tab-content{
-					.type-food{
-						background: white;
-						padding: 10px;
-						ul{
-							padding: 10px;
-					    list-style: none;
-					    line-height: 33px;
-					    color: #636363;
-					    li{
-					    	a:hover{
-						    	text-decoration: none;
-						    	color: #cf2127;
-						    	background-color: white !important;
-					    	}
-					    }
+				.bill-content{
+					right: 20px;
+					background: white;
+					margin-top: 40px;
+					padding: 0px;
+					.div-top{
+						border-bottom: solid 1px #eee;
+						padding: 15px;
+						.amount-item{
+							float: left;
+							a{
+								padding: 5px 10px;
+								font-size: 12px;
+								background: #eee;
+								border-radius: 5px;	
+							}
+							a:hover{
+								text-decoration: none;
+								background: #5d6d9a;
+								color: white;
+							}
+							
+						}
+						.reset-order{
+							float: right;
+							a{
+								padding: 3px 10px;
+						    border: solid 1px #cf2127;
+						    color: #cf2127;
+						    border-radius: 5px;
+							}
+							a:hover{
+								background: #cf2127;
+								color: white;
+								text-decoration: none;
+								cursor: pointer;
+							}
 						}
 					}
+					.list-item-order{
+						.food-order{
+							border-bottom: solid 1px #eee;
+						}
+					}
+					.cart-content{
+						background: #f9f9f9;
+				    line-height: 2;
+						.row{
+					    padding: 0 15px;
+							border-bottom: solid 1px #eee; 
+							margin: 0px;
+
+						}
+						.submit{
+							padding: 10px;
+							background: white;
+							.order{
+								width: 100%;
+								background: #cf2127;
+								color: white;
+							}
+						}
+					}
+				}
+				.right-fixed{
+					position: fixed;
+					right: 65px;
+					top: 20px;
+					margin-top: 0px;
 				}
 			}
 		}

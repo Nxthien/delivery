@@ -1,0 +1,25 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+$(window).on("scroll", function () {
+    var th = $(this);
+    if ($(this)[0].scrollY >= $(".detail-kind-menu")[0].offsetParent.offsetTop) {
+        $(".type-food").addClass("fixed");
+    } else {
+        $(".type-food").removeClass("fixed");
+    }
+    $.each($(".monan-container").find('.list-item-group'), function () {
+        var offset = $(this)[0].offsetParent.offsetTop + $(this)[0].offsetTop - 5;
+        if (th[0].scrollY >= offset) {
+            $(".monan-menu li").removeClass("active-menu");
+            $(".monan-menu").find('li#menu-' + $(this)[0].id).addClass("active-menu");
+        }
+    });
+});
+$(".monan-menu a").on("click", function () {
+    var id = $(this).parent()[0].id.replace('menu-', '');
+
+    var offset = $(".monan-container li#" + id)[0].offsetTop + $(".monan-container")[0].offsetParent.offsetTop;
+    $("body").animate({scrollTop: offset}, 500, 'swing');
+    return false;
+});

@@ -40,7 +40,6 @@
 							</tr>
 						</tbody>
 					</table>
-
 				</div>
 			</div>
 			<div class="clearfix"></div>
@@ -48,41 +47,117 @@
 	</div>
 	<div class="container-content">
 		<div class="content-restaurant">
-			<div class="all-info-restaurant col-md-9">
-				<ul class="nav nav-tabs">
-				  <li class="active"><a data-toggle="tab" href="#menu">THỰC ĐƠN</a></li>
-				  <li><a data-toggle="tab" href="#intro">GIỚI THIỆU</a></li>
-				  <li><a data-toggle="tab" href="#sale">KHUYẾN MẠI</a></li>
-				</ul>
-
-				<div class="tab-content">
-				  <div id="menu" class="tab-pane fade in active">
-				    <div class="type-food col-md-3">
-				    	<ul>
-				    		<% @types.each do |t| %>
-				    			<li><a href="<%= t.id%>"> <%= t.name%></a></li>
-				    	 	<% end %>
-				    	</ul>
-				    </div>
-				    <div class="list-food col-md-9">
-				    	
-				    </div>
-				    <div class="clearfix"></div>
-				  </div>
-				  <div id="intro" class="tab-pane fade">
-				    <h3>Menu 1</h3>
-				    <p>Some content in menu 1.</p>
-				  </div>
-				  <div id="sale" class="tab-pane fade">
-				    <h3>Menu 2</h3>
-				    <p>Some content in menu 2.</p>
-				  </div>
+			<div class="all-info-restaurant">
+				<div class="menu-content col-md-9">
+					<ul class="nav nav-tabs">
+					  <li class="active"><a data-toggle="tab" href="#menu">THỰC ĐƠN</a></li>
+					  <li><a data-toggle="tab" href="#intro">GIỚI THIỆU</a></li>
+					  <li><a data-toggle="tab" href="#sale">KHUYẾN MẠI</a></li>
+					</ul>
+					<div class="tab-content">
+					  <div id="menu" class="tab-pane fade in active">
+				     <nav class="col-md-4 type-food" id="myScrollspy">
+				        <ul class="nav nav-pills nav-stacked scroll">
+				          <% @types.each_with_index do |t,index | %>
+				          	<% if index == 0 %>
+						    			<li><a href="#<%= t.id%>" class="active"><%= t.name %></a> </li>
+				          	<% else %>
+						    			<li><a href="#<%= t.id%>"><%= t.name %></a> </li>
+						    		<% end %>
+					    		<% end %>
+				        </ul>
+				     	</nav>
+					    <div class="list-food col-md-8">
+					    	<div class="detail-kind-menu">
+					    		<% @types.each do |t| %>
+					    			<div id="<%= t.id %>" class="scrollpanel type-list">
+					    				<p class="kind-of-food"><%= t.name %></p>
+				    					<% t.foods.all.each do |f|%>
+				    						<div class="box-menu-detail">
+				    							<div class="img-detail col-md-1">
+				    								<% if f.image.present? %>
+											    		<%= image_tag f.image %>
+											    	<% else %>
+											    		<% if f.crawl_image.slice(0..3) == "http" %>
+													      <%= image_tag f.crawl_image ,size: 60 %>
+											    		<% else %>
+											    			<%= image_tag "no-image.png",size: 60 %>
+											    		<% end %>
+											    	<% end %>
+				    							</div>
+				    							<div class="name-food-detail col-md-11">
+				    								<div class="f-left" style="float:left;">
+				    									<p class="title-name-food"> <%= f.name %> </p>
+				    									<p class="count-order">Đã được đặt <strong><%= f.countorder %></strong>  trong tháng </p>
+				    								</div>
+				    								<div class="f-right" style="float: right;">
+				    									<div class="price" style="color:blue; font-size:16px; display:inline-block;"><%= f.basicprice %>.000</div>
+				    									<%= link_to "+", restaurant_order_path(t.restaurant_id,food_id: f.id), class: "add-cart" , method: "post" ,remote: true%>
+				    								</div>
+				    							</div>
+				    							<div class="clearfix"></div>
+				    							<hr class="bottom">
+				    						</div>
+				    					<% end %>
+					    			</div>
+					    		<% end %>
+					    	</div>
+					    </div>
+					    <div class="clearfix"></div>
+					  </div>
+					  <div id="intro" class="tab-pane fade">
+					    <h3>Menu 1</h3>
+					    <p>Some content in menu 1.</p>
+					  </div>
+					  <div id="sale" class="tab-pane fade">
+					    <h3>Menu 2</h3>
+					    <p>Some content in menu 2.</p>
+					  </div>
+					</div>
 				</div>
+				<div class="bill-content col-md-3">
+					<form>
+						<div class="div-top">
+							<div class="amount-item" style="display: inline-block;">
+								<a>1 phần - 1 người</a>
+							</div>
+							<div class="reset-order" style="display: inline-block">
+								<a>Reset</a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="list-item-order" style="overflow: auto; overflow-y:auto; max-height:200px">
+						</div>
+						<div class="cart-content">
+							<div class="row sum-price">
+								<div class="title" style="display:inline-block; float: left ;"> Cộng </div>
+								<input type="hidden" name="cart[sum_money]" value="0" class="cart-money">
+								<div class="price" style="display:inline-block; float: right ;">0</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="row delivery">
+								<div class="title" style="display:inline-block; float: left ;"> Phí vận chuyển </div>
+								<div class="price" style="display:inline-block; float: right ;">5.000đ/km</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="row service">
+								<div class="title" style="display:inline-block; float: left ;"> Phục vụ </div>
+								<div class="price" style="display:inline-block; float: right ;">10%</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="row price-order">
+								<div class="title" style="display:inline-block; float: left ;"> Tạm tính </div>
+								<div class="price" style="display:inline-block; float: right ;">0 đ</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="row submit">
+								<%= link_to "Đặt trước " , carts_path , class: "btn order" , method: "post"%>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="clearfix"></div>
 			</div>
-			<div class="container-bill col-md-3">
-				
-			</div>
-			<div class="clearfix"></div>
 		</div>
 	</div>
 </div>

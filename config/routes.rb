@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root 'page#index'
   get 'admin' => 'admin#index'
-  resources :restaurants
+  resources :carts
+  resources :restaurants do
+    post 'order' => 'restaurants#order'
+  end
   resources :admin
   namespace :admins do
     get '/foods/find' => 'foods#find_type'

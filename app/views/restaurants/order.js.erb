@@ -1,0 +1,31 @@
+<% @food.amount = 1 %>
+id = <%= @food.id %>
+if ( $(".list-item-order #<%=@food.id%>").length === 0 ) {
+	$(".list-item-order").append("<%= escape_javascript(render partial: 'restaurants/food_order', locals: { item: @food} ) %>"); 
+	var a = $(".food-order .price-hidden");
+	var sum_price = 0 ; 
+	for ( var i =0 ; i< a.length ; i ++){
+		sum_price += parseInt($(a[i]).val());
+	}
+	$(".cart-content .sum-price .price").html(sum_price+ ".000đ");
+	$(".cart-content .sum-price .cart-money").val(sum_price);
+	$(".cart-content .price-order .price").html(sum_price+ ".000đ");
+}else{
+	var div = $(".list-item-order").find("#<%= @food.id %>");
+	var value = parseInt(div.find(".amount-hidden").val()) + 1;
+	var valueprice = parseInt(div.find(".price-hidden").val());
+	var c = valueprice/(value -1)
+	var sumprice = c * value ;
+	div.find(".price-food").html(sumprice + ".000đ");
+	div.find(".number").html(value);
+	div.find(".amount-hidden").val(value);
+	div.find(".price-hidden").val(sumprice);
+	var a = $(".food-order .price-hidden");
+	var sum_price = 0 ; 
+	for ( var i =0 ; i< a.length ; i ++){
+		sum_price += parseInt($(a[i]).val());
+	}
+	$(".cart-content .sum-price .price").html(sum_price+ ".000đ");
+	$(".cart-content .sum-price .cart-money").val(sum_price);
+	$(".cart-content .price-order .price").html(sum_price+ ".000đ");
+}

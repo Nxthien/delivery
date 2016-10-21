@@ -3,4 +3,7 @@ class RestaurantsController < ApplicationController
 		@restaurant = Restaurant.find(params[:id])
 		@types = @restaurant.listtypes.all
 	end
+	def order
+		@food = Food.find(params[:food_id])
+	end
 end
