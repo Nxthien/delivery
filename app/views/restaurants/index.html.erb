@@ -1,0 +1,43 @@
+<div class="restaurant-index">
+	<div class="title">
+		<h3 style="color: #cf2127">Danh sách nhà hàng</h3>
+	</div>
+	<div class="list-restaurant" style="margin-top: 30px">
+		<% @restaurants.each_slice(3) do | res | %>
+		  <div class="row">
+		  <% res.each do |r|%>
+		  	<%= link_to restaurant_path(r) do %>
+				  <div class="col-xs-6 col-md-4 item">
+				    <div class="thumbnail">
+				    	<% if r.image.present? %>
+				      	<%= image_tag r.image %>
+				      <% else %>
+				      	<%= image_tag r.coverimage %>
+				      <% end %>
+				      <div class="caption">
+				        <div class="name">
+				        	<h4><%= r.name%></h4>
+				        </div>
+				        <div class="address">
+				        	<% if r.address.length < 45 %>
+				      			<%= r.address %>
+				      		<% else %>
+				      			<%= r.address.slice(0..40)%>...
+				      		<% end%>
+				     		</div>
+				     		<div class="type-restaurant">
+				     			<%= r.type_restaurant %>
+				     		</div>
+				      </div>
+				    </div>
+				  </div>
+			  <% end %>
+			<% end %>
+		  </div>
+		<% end %>
+		<div style="text-align: center">
+			<%= will_paginate @restaurants, renderer: BootstrapPagination::Rails %>
+		</div>
+	  <div class="clearfix"></div>
+	</div>
+</div>

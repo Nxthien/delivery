@@ -3,27 +3,29 @@
 	  <div class="row">
 	  <% light.each do |r| %>
 	  	<% food = r.foods.first %>
-		  <div class="col-xs-4 col-md-3 item">
-		    <div class="thumbnail">
-		    	<% if food.image.present? %>
-		    		<%= image_tag food.image %>
-		    	<% else %>
-		    		<% if food.crawl_image.slice(0..3) == "http" %>
-				      <%= image_tag food.crawl_image %>
-		    		<% else %>
-		    			<%= image_tag "no-image.png"%>
-		    		<% end %>
-		    	<% end %>
-		      <div class="caption">
-		        <div class="name">
-		        	<h4><%= food.name%></h4>
-		        </div>
-		     		<div class="price">
-		     			<%= food.basicprice %>. 000 đ
-		     		</div>
-		      </div>
-		    </div>
-		  </div>
+	  	<%= link_to restaurant_path(r.restaurant.id) do %>
+			  <div class="col-xs-4 col-md-3 item">
+			    <div class="thumbnail">
+			    	<% if food.image.present? %>
+			    		<%= image_tag food.image %>
+			    	<% else %>
+			    		<% if food.crawl_image.slice(0..3) == "http" %>
+					      <%= image_tag food.crawl_image %>
+			    		<% else %>
+			    			<%= image_tag "no-image.png"%>
+			    		<% end %>
+			    	<% end %>
+			      <div class="caption">
+			        <div class="name">
+			        	<h4><%= food.name%></h4>
+			        </div>
+			     		<div class="price">
+			     			<%= food.basicprice %>. 000 đ
+			     		</div>
+			      </div>
+			    </div>
+			  </div>
+		  <% end %>
 		<% end %>
 	  </div>
 	<% end %>

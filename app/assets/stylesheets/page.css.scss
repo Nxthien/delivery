@@ -205,7 +205,7 @@
 			background-size: cover;
 			background-size: contain;
 			.form-search{
-				width: 50%;
+				width: 90%;
 		    margin-left: 25%;
 		    padding-top: 100px;
 		    input{
@@ -223,6 +223,22 @@
 		    }
 		    .icon{
 		    	background: url('icon-search.png');
+		    }
+		    .twitter-typeahead{
+		    	display: inline-block;
+		    	width: 80% ;
+		    	.tt-open{
+		    		background: white;
+		    		width: 100%;
+		    		margin-top: 5px;
+		    		border-radius:5px;
+		    		padding: 10px;
+		    		line-height: 30px;
+		    	}
+		    }
+		    .submit{
+		    	width:20%;
+		    	display: inline-block;
 		    }
 			}
 		}	
@@ -272,9 +288,16 @@
 			}
 		}
 		.view-more{
-			background:  #fff;
 	    padding: 20px;
 	    text-align: center;
+			background:  #fff;
+			a:hover{
+	    	text-decoration: none;
+	    	color: #585d64;
+	    }
+	    a{
+	    	color: gray;
+	    }
 		}
 		.hot-foods{
 			margin-top: 20px;

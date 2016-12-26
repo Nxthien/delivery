@@ -2,8 +2,12 @@
 	<div class="restaurant-block">
 		<div class="row">
 			<div class="restaurant-cover col-md-6">
-				<%= image_tag @restaurant.coverimage ,width: "580px", height: "280px"%>
-			</div>
+				<% if @restaurant.image.present? %>
+	      	<%= image_tag @restaurant.image, width: "580px", height: "280px"%>
+	      <% else %>
+	      	<%= image_tag @restaurant.coverimage, width: "580px", height: "280px" %>
+	      <% end %>
+				</div>
 			<div class="restaurant-info col-md-6">
 				<div class="type-food">
 					<%= @restaurant.type_restaurant %>
@@ -116,22 +120,24 @@
 					</div>
 				</div>
 				<div class="bill-content col-md-3">
-					<form>
-						<div class="div-top">
-							<div class="amount-item" style="display: inline-block;">
-								<a>1 phần - 1 người</a>
-							</div>
-							<div class="reset-order" style="display: inline-block">
-								<a>Reset</a>
-							</div>
-							<div class="clearfix"></div>
+					<div class="div-top">
+						<div class="amount-item" style="display: inline-block;">
+							<a>1 phần - 1 người</a>
 						</div>
+						<div class="reset-order" style="display: inline-block">
+							<a class="remove-food">Reset</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<%= simple_form_for Cart.new , url: carts_path , method: "post" do |f| %>
 						<div class="list-item-order" style="overflow: auto; overflow-y:auto; max-height:200px">
 						</div>
+						<%= f.hidden_field :status, value: "Going"%>
+						<%= f.hidden_field :restaurant_id, value: @restaurant.id%>
 						<div class="cart-content">
 							<div class="row sum-price">
 								<div class="title" style="display:inline-block; float: left ;"> Cộng </div>
-								<input type="hidden" name="cart[sum_money]" value="0" class="cart-money">
+								<%= f.hidden_field :sum_money , class: "cart-money" %>
 								<div class="price" style="display:inline-block; float: right ;">0</div>
 								<div class="clearfix"></div>
 							</div>
@@ -148,13 +154,34 @@
 							<div class="row price-order">
 								<div class="title" style="display:inline-block; float: left ;"> Tạm tính </div>
 								<div class="price" style="display:inline-block; float: right ;">0 đ</div>
+								<%= f.hidden_field :money , class: "cart-money" %>
 								<div class="clearfix"></div>
 							</div>
-							<div class="row submit">
-								<%= link_to "Đặt trước " , carts_path , class: "btn order" , method: "post"%>
+							<button type="button" class="btn btn-primary btn-lg order-button" data-toggle="modal" data-target="#myModal12">
+								Đặt Hàng
+							</button>
+							<div class="modal fade" id="myModal12" >
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							        <h4 class="modal-title" id="myModalLabel">Nhập Thông Tin Cá nhân</h4>
+							      </div>
+							      <div class="modal-body">
+							      	<%= f.input :customer, label: "Nhập tên khách hàng"%>
+							      	<%= f.input :address, label: "Địa chỉ liên hệ"%>
+							      	<%= f.input :phone, label: "Số điện thoại"%>
+							      </div>
+							      <div class="modal-footer">
+							        <div class="row submit">
+												<%= f.submit "Tạo Hóa Đơn", class: "order"%>
+											</div>
+							      </div>
+							    </div>
+							  </div>
 							</div>
-						</form>
-					</div>
+						</div>
+					<% end %>
 				</div>
 				<div class="clearfix"></div>
 			</div>

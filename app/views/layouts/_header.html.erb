@@ -4,25 +4,12 @@
 			<div class="brand">
 				<%= link_to image_tag("logo.png"), "/"%>
 			</div>
-			<div class="region">
-				<div class="btn-group">
-				  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    Hà Nội <span class="caret"></span>
-				  </button>
-				  <ul class="dropdown-menu">
-					  <li><%= link_to "Hà Nội", "#" %></li>
-					  <li><%= link_to "TP.HCM", "#" %></li>
-					  <li><%= link_to "Đà Nẵng", "#" %></li>
-					  <li><%= link_to "Cần Thơ", "#" %></li>
-				  </ul>
-				</div>
-			</div>
 			<div class="list-text">
 				<ul>
-					<li><%= link_to "Tất cả", "#" %></li>
-					<li><%= link_to "Món chay", "#" %></li>
-					<li><%= link_to "Trái cây sạch", "#" %></li>
-					<li><%= link_to "Rượu vang", "#" %></li>
+					<li><%= link_to "Tất cả", restaurants_path %></li>
+					<li><%= link_to "Món chay", search_type_path(type: "Món chay") %></li>
+					<li><%= link_to "Trái cây sạch", search_type_path(type: "Trái cây sạch") %></li>
+					<li><%= link_to "Rượu vang", search_type_path(type: "Rượu vang") %></li>
 				</ul>
 			</div>
 		</div>
@@ -40,17 +27,12 @@
           </a>
           <ul class="dropdown-menu dropmenu" aria-labelledby="dropdownMenu1" style="width: 20% ; right: 5%">
             <li>
-            	<%= link_to "#" do %>
-            		<i class="ico-user ico-user-recent circle"></i>Nhà hàng ưu thích
-            	<% end %>
-            </li>
-            <li>
-            	<%= link_to "#" do %>
+            	<%= link_to user_list_cart_path do %>
             		<i class="ico-user ico-user-recent circle"></i>Lịch sử đặt món
             	<% end %>
             </li>
              <li>
-            	<%= link_to "#" do %>
+            	<%= link_to edit_user_registration_path do %>
             		<i class="ico-user ico-user-recent circle"></i>Cập nhật tài khoản
             	<% end %>
             </li>

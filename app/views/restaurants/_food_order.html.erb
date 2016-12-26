@@ -1,19 +1,20 @@
-<form method="post">
 	<div class="food-order" style="padding: 5px 15px;" id="<%= item.id%>">
 		<div class="top">
 			<span class="amount">
+
 				<div class="add" style="display: inline-block; color: #19ba07 ; cursor: pointer; "><i class="fa fa-plus-square" aria-hidden="true"></i></div>
 				<div class="number" style="display: inline-block"> <%= item.amount %> </div>
 				<input name="cart[items_attributes][<%= item.id %>][amount]" type="hidden" value="<%= item.amount %>" class="amount-hidden">
+				
 				<div class="remove" style="display: inline-block; cursor: pointer;"><i class="fa fa-minus-square" aria-hidden="true"></i></div>
+				<input name="cart[items_attributes][<%= item.id %>][name]" type="hidden" value="<%= item.name %>"
 			</span>
 			<span class="name-food" style="padding-left:10px;" ><%=item.name %></span>
 		</div>
 		<div class="price-food" style="float:right"><%= item.basicprice %>.000đ</div>
-		<input type="hidden" name="cart[item_attributes][<%= item.id%>][price]" value="<%= item.basicprice %>" class="price-hidden">
+		<input type="hidden" name="cart[items_attributes][<%= item.id%>][price]" value="<%= item.basicprice %>" class="price-hidden">
 		<div class="clearfix"></div>
 	</div>
-</form>
 <script type="text/javascript">
 	$(".add").on("click", function(){
 		var id = $(this).parent().parent().parent().attr('id');
@@ -25,11 +26,11 @@
 		$("#"+id+" .number").html(a);
 		$("#"+ id +" .amount-hidden").val(a);
 		$("#"+ id +" .price-hidden").val(sum);
-		var a = $(".food-order .price-hidden");
+		var div = $(".food-order .price-hidden");
 		var sum_price = 0 ; 
 		
-		for ( var i =0 ; i< a.length ; i ++){
-			sum_price += parseInt($(a[i]).val());
+		for ( var i =0 ; i< div.length ; i ++){
+			sum_price += parseInt($(div[i]).val());
 		}
 
 		$(".cart-content .sum-price .price").html(sum_price+ ".000đ");
@@ -47,15 +48,16 @@
 		$("#"+id+" .number").html(a);
 		$("#"+id+" .amount-hidden").val(a);
 		$("#"+id+" .price-hidden").val(sum);
-		var a = $(".food-order .price-hidden");
+		var div = $(".food-order .price-hidden");
 		var sum_price = 0 ; 
 		
-		for ( var i =0 ; i< a.length ; i ++){
-			sum_price += parseInt($(a[i]).val());
+		for ( var i =0 ; i< div.length ; i ++){
+			sum_price += parseInt($(div[i]).val());
 		}
 		$(".cart-content .sum-price .price").html(sum_price+ ".000đ");
 		$(".cart-content .sum-price cart-money").val(sum_price);
 		$(".cart-content .price-order .price").html(sum_price + ".000đ");
+		console.log(a);
 		if (a == 0) {
 			$(this).parent().parent().parent().remove();
 			$(".cart-content .sum-price .price").html("0 đ");

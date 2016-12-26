@@ -28,4 +28,7 @@ $( document ).ready(function() {
       // }).appendTo( "body" );
     });
   });
+  $(".remove-food").on("click", function(){
+    $(".list-item-order .food-order").remove();
+  });
 });

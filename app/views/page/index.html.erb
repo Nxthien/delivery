@@ -1,9 +1,11 @@
 <div class="main-content">
 	<div class="banner-search">
 		<div class="form-search" style="width: 60%">
-			<%= simple_form_for :search, url: "" do |f| %>
-				<span style="display: inline-block; width: 70% !important;"><%= f.input :name ,label: false , placeholder: "Đặt món trực tuyến, giao tận nơi tại 1242 địa điểm ở Hà Nội từ 08:30 - 21:00"%></span>
-				<span style="display: inline-block"><%= f.submit%></span>						
+			<%= simple_form_for :search, url: search_path, method: 'post' do |f| %>
+				<span style="display: inline-block; width: 100% !important;">
+					<%= f.input :name ,label: false , placeholder: "Đặt món trực tuyến, giao tận nơi tại 1242 địa điểm ở Hà Nội từ 08:30 - 21:00", class: 'dsdsds' %>
+					<%= f.submit "search", class: "hidden" %>
+				</span>
 			<% end %>
 		</div>
 	</div>
@@ -15,7 +17,9 @@
 			<%= render "/page/hot_restaurant"%>
 		</div>
 		<div class="view-more">
-			Xem Thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			<%= link_to restaurants_path do %>
+				Xem Thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			<% end %>
 		</div>
 		<div class="hot-foods">
 			<ul class="nav nav-tabs">
@@ -41,7 +45,44 @@
 			</div>
 		</div>
 		<div class="view-more">
-			Xem Thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			<%= link_to restaurants_path do %>
+				Xem Thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			<% end %>
 		</div>
 	</div>
 </div>
+
+<script>
+	var substringMatcher = function(strs) {
+  return function findMatches(q, cb) {
+    var matches, substringRegex;
+
+    // an array that will be populated with substring matches
+    matches = [];
+
+    // regex used to determine if a string contains the substring `q`
+    substrRegex = new RegExp(q, 'i');
+
+    // iterate through the pool of strings and for any string that
+    // contains the substring `q`, add it to the `matches` array
+    $.each(strs, function(i, str) {
+      if (substrRegex.test(str)) {
+        matches.push(str);
+      }
+    });
+
+    cb(matches);
+  };
+};
+
+var names = <%= Restaurant.pluck(:name).to_json.html_safe %> ;
+$('.search_name .form-control').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'names',
+  source: substringMatcher(names)
+});
+</script>

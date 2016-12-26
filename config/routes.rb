@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   root 'page#index'
   get 'admin' => 'admin#index'
+  post 'search' => 'page#search'
   resources :carts
+  get 'search_type' => 'restaurants#search_type'
   resources :restaurants do
     post 'order' => 'restaurants#order'
   end
+  get 'user_list_cart' => 'carts#user_list_cart'
   resources :admin
   namespace :admins do
     get '/foods/find' => 'foods#find_type'

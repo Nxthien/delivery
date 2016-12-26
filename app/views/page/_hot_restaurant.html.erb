@@ -1,5 +1,5 @@
 <div class="hot-restaurant">
-	<% @restaurants.each_slice(3) do | res | %>
+	<% Restaurant.take(21).each_slice(3) do | res | %>
 	  <div class="row">
 	  <% res.each do |r|%>
 	  	<%= link_to restaurant_path(r) do %>

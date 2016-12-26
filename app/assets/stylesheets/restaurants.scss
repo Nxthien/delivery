@@ -2,6 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// restaurant index
+
+.restaurant-index{
+	padding-top: 40px;
+	width: 1170px;
+	margin: auto;
+	.list-restaurant{
+		.item{
+			padding: 0px 10px !important;
+			.thumbnail{
+				padding: 10px !important ;
+				.caption{
+					.name {
+						h4{
+							font-size: 14px;
+							font-weight: 700;
+						}
+					}
+					.address{
+
+					}
+					.type-restaurant{
+						text-transform: uppercase;
+				    color: #a1a1a1;
+				    font-size: 11px;
+				    margin-top: 7px;
+					}
+				}
+			}
+			.thumbnail:hover{
+				transition: box-shadow .25s;
+				box-shadow: 0 2px 2px 0 rgba(0,0,0,.2),0 4px 15px 0 rgba(0,0,0,.19) ;
+			}
+		}
+	}
+}
+
 // page show
 
 .main-restaurant{
@@ -165,7 +202,6 @@
 					}
 				}
 				.bill-content{
-					right: 20px;
 					background: white;
 					margin-top: 40px;
 					padding: 0px;
@@ -225,6 +261,19 @@
 								background: #cf2127;
 								color: white;
 							}
+						}
+						.order-button{
+							padding: 5px 70px;
+							background: #cf2127;
+							border: none;
+							border-radius: 0px;
+							margin-left: 55px;
+							margin-top: 30px;
+							&:focus{
+								outline: none;
+								outline-offset: none;
+							}
+
 						}
 					}
 				}
