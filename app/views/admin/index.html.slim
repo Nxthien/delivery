@@ -1,5 +1,38 @@
 .main-content
-	.block-order
-		.title
-			h3 List Order
-		.		
+  .block-order
+    .title
+      h3 List Order
+    .content
+      table.table.table-striped
+        thread
+          tr
+            td ID
+            td Money Total
+            td Distance
+            td Address
+            td Phone
+            td Custumer
+            td Status
+        tboby
+        - @carts.each do |cart|
+          tr
+            td #{cart.id}
+            td #{cart.sum_money}
+            td #{cart.distant}
+            td #{cart.address}
+            td #{cart.phone}
+            td #{cart.customer}
+            td
+              span #{cart.status}
+              span
+                /= link_to "Change", update_cart_path(id: cart.id), method: "put", class: "btn btn-primary btn-change"
+                .btn.btn-primay.btn-change data-id="#{cart.id}" Change
+javascript:
+  $(".btn-change").on("click",function(){
+      var id = $(this).data("id")
+      $.ajax({
+        type: "put",
+        url: "/update_cart",
+        data: { cart: {id: id} }
+      });
+    });

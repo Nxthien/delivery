@@ -7,8 +7,56 @@
 		</div>
 		<div class="navbar-right">
 			<div class="side-user">
-
+				<% if current_user.present?%>
+					<a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						<%= image_tag "profile.png"%>
+            <% if current_user.name.present? %>
+              <span style="padding-left: 10px;"><%= current_user.name %></span> 
+            <% else %>
+              <span style="padding-left: 10px;">Nil</span>
+            <% end %>   
+            <span class="caret"></span>           
+          </a>
+          <ul class="dropdown-menu dropmenu" aria-labelledby="dropdownMenu1" style="width: 20% ; right: 5%">
+            <li>
+            	<%= link_to user_list_cart_path do %>
+            		<i class="ico-user ico-user-recent circle"></i>Lịch sử đặt món
+            	<% end %>
+            </li>
+             <li>
+            	<%= link_to edit_user_registration_path do %>
+            		<i class="ico-user ico-user-recent circle"></i>Cập nhật tài khoản
+            	<% end %>
+            </li>
+            <li>
+            	<%= link_to destroy_user_session_path  ,:method => :delete do %>
+            		<i class="ico-user ico-user-recent circle"></i>Đăng xuất
+            	<% end %>
+            </li>
+          </ul>
+				<% else %>
+					<%#= link_to "Đăng nhập", "#", class: "btn-login", data: { toggle: 'modal', target:'#modal-login'} %>
+					<button type="button" class="btn btn-login" data-toggle="modal" data-target="#modal-login">Đăng nhập</button>
+			 	 	<div class="modal fade" id="modal-login" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content panel-content" style="width: 70%;margin-left:10%;">
+<!-- 					      <div class="modal-header">
+					      </div> -->
+					      <div class="modal-body">
+					      	<div class="login">
+					        	<%= render "/layouts/login" %>
+					      	</div>
+					      	<div class="register hide">
+					      		<%= render "/layouts/register"%>
+					      	</div>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				<% end %>
 			</div>
 		</div>
+	</div>
+</div>
 	</div>
 </div>

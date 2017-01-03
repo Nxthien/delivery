@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   get 'user_list_cart' => 'carts#user_list_cart'
   resources :admin
+  put '/update_cart' => 'admin#update_cart'
   namespace :admins do
     get '/foods/find' => 'foods#find_type'
     post '/search' => 'list_types#search'

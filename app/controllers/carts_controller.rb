@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
+	before_action :authenticate_user!
 	def create
 		if current_user.present?
-			binding.pry
 			@cart = Cart.create(cart_params)
 			@cart.user_id = current_user.id
 			@cart.save

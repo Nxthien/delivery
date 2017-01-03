@@ -28,7 +28,14 @@
 		}
 	}
 	.main-content{
-		padding-left:0px;
+		padding:10px;
+		.block-order
+			.content{
+				.btn-change{
+					margin-left: 10px;
+					padding: 0px 4px !important;	
+				}
+			}
 	}
 }
 .fixed{
