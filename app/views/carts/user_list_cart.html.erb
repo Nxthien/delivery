@@ -1,37 +1,39 @@
 <div class="container">
-	<div class="title-header">
-		<h3>Đơn hàng đã đặt</h3>
-	</div>
-	<div class="main-content">
-		<table class="table">
-	    <thead>
-	      <tr>
-	        <th>STT</th>
-	        <th>Món</th>
-	        <th>Ngày đặt</th>
-	        <th>Nơi đặt</th>
-	        <th>Tổng tiền</th>
-	        <th>Trạng thái</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-	      <% @carts.each do |cart| %>
-	      	<tr>
-	      		<th><%= cart.id%></th>
-	      		<th>
-	      			<ul style="list-style: none; padding-left: 0px">
-	      				<% cart.items.each do |item|%>
-	      					<li> <%= item.name %></li>
-	      				<% end %>
-	      			</ul>
-	      		</th>
-	      		<th><%= cart.created_at %></th>
-	      		<th><%= Restaurant.find(cart.restaurant_id).address %></th>
-	      		<th><%= cart.sum_money %>.000 đ</th>
-	      		<th><%= cart.status %></th>
-	      	</tr>
-	      <% end %>
-	    </tbody>
-	  </table>
-	</div>
+  <div class="list-order">
+    <div class="title-header">
+      <h3>Đơn hàng đã đặt</h3>
+    </div>
+    <div class="main-content">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Món</th>
+            <th>Ngày đặt</th>
+            <th>Nơi đặt</th>
+            <th>Tổng tiền</th>
+            <th>Trạng thái</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @carts.each do |cart| %>
+            <tr>
+              <th><%= cart.id%></th>
+              <th>
+                <ul style="list-style: none; padding-left: 0px">
+                  <% cart.items.each do |item|%>
+                    <li> <%= item.name %></li>
+                  <% end %>
+                </ul>
+              </th>
+              <th><%= cart.created_at %></th>
+              <th><%= Restaurant.find(cart.restaurant_id).address %></th>
+              <th><%= cart.sum_money %>.000 đ</th>
+              <th><%= cart.status %></th>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

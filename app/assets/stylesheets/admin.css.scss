@@ -27,15 +27,18 @@
 			}
 		}
 	}
-	.main-content{
-		padding:10px;
-		.block-order
+	.main-contant{
+		margin:15px;
+		background: white;
+		.block-order{
+			padding: 10px;
 			.content{
 				.btn-change{
 					margin-left: 10px;
 					padding: 0px 4px !important;	
 				}
 			}
+		}
 	}
 }
 .fixed{

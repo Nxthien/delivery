@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :views
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root 'page#index'
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
     get '/types/' => 'list_types#home'
     get '/foods' => 'foods#home'
     post 'foods/search' => 'foods#search'
+    get 'carts' => 'carts#index'
+    resources :users
   	resources :restaurants do
   		resources :list_types do
         resources :foods

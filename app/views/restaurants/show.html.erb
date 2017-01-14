@@ -27,24 +27,6 @@
 					</span>
 				</div>
 				<hr>
-				<div class="delivery"> 
-					<table>
-						<thead>
-							<tr>
-								<th>TỐI THIỂU <i class="fa fa-headphones" aria-hidden="true"></i> </th>
-								<th>PHÍ VẬN CHUYỂN <i class="fa fa-money" aria-hidden="true"></i></th>
-								<th>GIAO HÀNG <i class="fa fa-car" aria-hidden="true"></i></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>100,000 đ</td>
-								<td>5,000 đ/km</td>
-								<td>Quán tự giao</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
 			</div>
 			<div class="clearfix"></div>
 		</div>
@@ -141,23 +123,13 @@
 								<div class="price" style="display:inline-block; float: right ;">0</div>
 								<div class="clearfix"></div>
 							</div>
-							<div class="row delivery">
-								<div class="title" style="display:inline-block; float: left ;"> Phí vận chuyển </div>
-								<div class="price" style="display:inline-block; float: right ;">5.000đ/km</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="row service">
-								<div class="title" style="display:inline-block; float: left ;"> Phục vụ </div>
-								<div class="price" style="display:inline-block; float: right ;">10%</div>
-								<div class="clearfix"></div>
-							</div>
 							<div class="row price-order">
 								<div class="title" style="display:inline-block; float: left ;"> Tạm tính </div>
 								<div class="price" style="display:inline-block; float: right ;">0 đ</div>
 								<%= f.hidden_field :money , class: "cart-money" %>
 								<div class="clearfix"></div>
 							</div>
-							<button type="button" class="btn btn-primary btn-lg order-button" data-toggle="modal" data-target="#myModal12">
+							<button type="button" class="btn btn-primary btn-lg order-button" data-toggle="modal" data-target="#myModal12", data-backdrop="false">
 								Đặt Hàng
 							</button>
 							<div class="modal fade" id="myModal12" >

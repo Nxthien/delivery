@@ -1,0 +1,23 @@
+<div class="content">
+  <div class="panel-new">
+    <div class="title"><h2>EDIT RESTAURANT</h2></div>
+    <div class="form-restaurant col-xs-10 col-xs-offset-1">
+      <%= simple_form_for User.find(user.id), url: admins_user_path(user.id),method: "put" do |f| %>
+          <div class="row">
+            <div class="col-xs-8">
+              <%= f.input :name, label: "Name" %>
+              <%= f.input :email, label: "Email"%>
+              <%= f.input :address, label: "Address", class: "st" %>
+            </div>
+            <div class="col-xs-4">
+              <%= f.input :phonenumber, label: "Phone Number", class: "st" %>
+              <%= f.input :isadmin,as: :boolean, label: "Isadmin", class: "st" %>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <%= f.button :submit, label: "Add Restaurant" , class: " btn btn-primary"%>
+      <% end %>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>

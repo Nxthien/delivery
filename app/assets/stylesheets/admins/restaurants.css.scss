@@ -81,6 +81,37 @@
       }
 		}
 	}
+  .user-data{
+    background: white;
+    margin-top: 20px;
+    padding: 10px 10px ;
+    .data-restaurant:hover{
+      corsor: pointer;
+    }
+    .data-restaurant{
+      .action{
+        padding-left: 0px;
+        list-style: none;
+        li{
+          display: inline-block;
+          a{
+            color: black;
+            i{
+              padding: 0px 3px;
+            }
+
+          }
+          a:hover{
+            text-decoration: none;
+            color: #E75857;
+          }
+          a:focus{
+            outline: none;
+          }
+        }
+      }
+    }
+  }
 	.panel-new{
 		background: white;
 		padding: 20px;

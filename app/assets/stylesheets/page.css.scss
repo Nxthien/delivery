@@ -1,7 +1,10 @@
+.navbar {
+	margin-bottom: 0px !important;
+}
+
 .header{
 	.navbar{
 		border-right: solid 1px #eee;
-		margin-bottom: 0px;
 		background: white !important;
 		.navbar-left{
 			margin-top:5px; 
@@ -325,5 +328,26 @@
 				}
 			}
 		}
+	}
+	.devise{
+		margin-top: 30px !important;
+		width: 600px;
+		margin: auto;
+		background-color: white;
+		.row{
+			.contain{
+				padding-top:40px;
+				width: 500px;
+				margin: auto;
+				.title{
+					text-align: center;
+				}
+			}
+		}
+	}
+	.list-order{
+		margin-top: 30px;
+		background: white;
+    padding: 10px 35px;
 	}
 }

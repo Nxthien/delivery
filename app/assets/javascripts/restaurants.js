@@ -30,5 +30,8 @@ $( document ).ready(function() {
   });
   $(".remove-food").on("click", function(){
     $(".list-item-order .food-order").remove();
+    $(".cart-content .sum-price .price").html("0đ");
+    $(".cart-content .price-order .price").html("0đ");
+
   });
 });

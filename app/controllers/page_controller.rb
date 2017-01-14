@@ -9,7 +9,12 @@ class PageController < ApplicationController
 
   def search
   	@restaurant = Restaurant.find_by_name(params[:search][:name])
-  	redirect_to restaurant_path(@restaurant)
+    if @restaurant
+      redirect_to restaurant_path(@restaurant)
+    else
+      flash[:danger] = "Restaurant not exist"
+      redirect_to root_path
+    end
   end
 
   def show

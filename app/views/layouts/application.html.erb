@@ -9,9 +9,13 @@
   </head>
 
   <body data-spy="scroll" data-target="#myScrollspy" data-offset="50" style="position: relative;">
-  	<div class="header">
-  		<%= render "/layouts/header"%>
-  	</div>
+    <div class="header">
+      <%= render "/layouts/header"%>
+    </div>
+    <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>" style="margin-top: 15px;
+    margin-left: 15px;"><%= message %></div>
+          <% end %>
     <div class="restaurant-container">
       <%= yield %>
     </div>

@@ -5,8 +5,10 @@ class CartsController < ApplicationController
 			@cart = Cart.create(cart_params)
 			@cart.user_id = current_user.id
 			@cart.save
+			flash[:success] = "Created"
 			redirect_to user_list_cart_path
 		else
+			flash[:danger] = "Created Faild"
 			redirect_to restaurant_path(params[:restaurant_id])
 		end
 	end
