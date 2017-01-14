@@ -7,6 +7,12 @@ require 'capistrano/bundler'
 require 'capistrano/passenger'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
+
+require 'capistrano/bundler'
+require 'capistrano/rails'
+
+require "capistrano/scm/git"
+install_plugin Capistrano::SCM::Git
 # Includes tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:

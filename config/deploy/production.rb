@@ -14,6 +14,7 @@ role :db,  %w{52.37.18.34}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
+set :stage, :production
 server '52.37.18.34', user: 'ubuntu', roles: %w{web app}
 set :ssh_options, {
   keys: %w(~/Desktop/freetier.pem),
