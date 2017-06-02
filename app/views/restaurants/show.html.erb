@@ -140,13 +140,13 @@
 							        <h4 class="modal-title" id="myModalLabel">Nhập Thông Tin Cá nhân</h4>
 							      </div>
 							      <div class="modal-body">
-							      	<%= f.input :customer, label: "Nhập tên khách hàng"%>
-							      	<%= f.input :address, label: "Địa chỉ liên hệ"%>
-							      	<%= f.input :phone, label: "Số điện thoại"%>
+							      	<%= f.input :customer, label: "Nhập tên khách hàng", html: {class: "customer"} %>
+							      	<%= f.input :address, label: "Địa chỉ liên hệ", html: {class: "address"} %>
+							      	<%= f.input :phone, label: "Số điện thoại", html: {class: "phone"}%>
 							      </div>
 							      <div class="modal-footer">
 							        <div class="row submit">
-												<%= f.submit "Tạo Hóa Đơn", class: "order"%>
+												<%= f.submit "Tạo Hóa Đơn", disabled: true, class: "order disable" %>
 											</div>
 							      </div>
 							    </div>
@@ -160,3 +160,34 @@
 		</div>
 	</div>
 </div>
+<script>
+	$(document).on('turbolinks:load', function() {
+		var customer;
+		var address;
+		var phone;
+		$('input#cart_customer').on('change', function(){
+			customer = $(this).val();
+			load_button(customer,address, phone);
+			return false;
+		});
+		$('input#cart_address').on('change', function(){
+			address = $(this).val()
+			load_button(customer,address, phone);
+			return false;
+		});
+		$('input#cart_phone').on('change', function(){
+			phone = $(this).val()
+			load_button(customer,address, phone);
+			return false;
+		});
+		$('.remove-food').on('click', function(){
+			$('.list-item-order').empty();
+		});
+		var load_button = function(phone, customer, address) {
+			if(customer && address && phone ){
+				$('.order').removeClass('disable');
+				$('.order').prop('disabled', false);
+			}
+		} 
+	});
+</script>

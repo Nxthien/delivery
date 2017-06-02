@@ -42,6 +42,6 @@ class Admins::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:restaurant).permit(:name, :email, :address, :phone_number, :isadmin)
+    params.require(:user).permit(:name, :email, :address, :phone_number, :isadmin)
   end
 end

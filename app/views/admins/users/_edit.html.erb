@@ -2,7 +2,7 @@
   <div class="panel-new">
     <div class="title"><h2>EDIT RESTAURANT</h2></div>
     <div class="form-restaurant col-xs-10 col-xs-offset-1">
-      <%= simple_form_for User.find(user.id), url: admins_user_path(user.id),method: "put" do |f| %>
+      <%= simple_form_for user, url: admins_user_path(user.id),method: "put" do |f| %>
           <div class="row">
             <div class="col-xs-8">
               <%= f.input :name, label: "Name" %>

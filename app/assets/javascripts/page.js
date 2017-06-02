@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).on('turbolinks:load', function() {
 	// $("#register").click(function(){
 	// 	console.log("dsd");
 	// 	$(".login").addClass("hide");

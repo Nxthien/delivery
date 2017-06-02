@@ -75,7 +75,7 @@
   };
 };
 
-var names = <%= Restaurant.pluck(:name).to_json.html_safe %> ;
+var names = <%= Restaurant.pluck(:name).to_json.html_safe %> 
 $('.search_name .form-control').typeahead({
   hint: true,
   highlight: true,

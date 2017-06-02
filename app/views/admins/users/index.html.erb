@@ -30,10 +30,10 @@
                       <% end %>
                     </li>
                     <li>
-                      <%= link_to "#", data: {toggle: "modal", target:"#bs-example-modal-lg"} do %>
+                      <%= link_to "#", data: {toggle: "modal", target:"#bs-example-modal-lg#{user.id}"} do %>
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit
                       <% end %>
-                      <div class="modal fade" id="bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                      <div class="modal fade" id="bs-example-modal-lg<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                         <div class="modal-dialog modal-lg" role="document">
                           <div class="modal-content">
                             <%= render partial: "/admins/users/edit", locals: { user: user } %>

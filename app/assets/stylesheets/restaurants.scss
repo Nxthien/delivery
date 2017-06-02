@@ -256,6 +256,9 @@
 						.submit{
 							padding: 10px;
 							background: white;
+							.disable {
+								background: gray !important;
+							}
 							.order{
 								width: 100%;
 								background: #cf2127;
@@ -263,6 +266,7 @@
 							}
 						}
 						.order-button{
+							margin-bottom: 20px;
 							padding: 5px 70px;
 							background: #cf2127;
 							border: none;

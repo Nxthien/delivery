@@ -64,7 +64,6 @@ task :sss do
       score2 = c
   end
   k = 0
-  binding.pry
   if ( score1 == 6 & score2 < 5) || (score1 == 7 && score2 >=5 && score1 > score2)
     k =1 
   end

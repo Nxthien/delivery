@@ -1,14 +1,23 @@
 class CartsController < ApplicationController
 	before_action :authenticate_user!
+	
+	def new
+		@cart = Cart.new
+	end
+
 	def create
 		if current_user.present?
 			@cart = Cart.create(cart_params)
 			@cart.user_id = current_user.id
-			@cart.save
-			flash[:success] = "Created"
-			redirect_to user_list_cart_path
+			if @cart.save
+				flash[:success] = "Created"
+				redirect_to user_list_cart_path
+			else
+				flash[:danger] = "Create Cart Failed"
+				redirect_to root_path
+			end
 		else
-			flash[:danger] = "Created Faild"
+			flash[:danger] = "Created Failed"
 			redirect_to restaurant_path(params[:restaurant_id])
 		end
 	end

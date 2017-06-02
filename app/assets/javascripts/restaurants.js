@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).on('turbolinks:load', function() {
   $(".data-restaurant").click(function(){
   	$(".data-restaurant").removeClass("active");
   	$(this).addClass("active");
@@ -32,6 +32,5 @@ $( document ).ready(function() {
     $(".list-item-order .food-order").remove();
     $(".cart-content .sum-price .price").html("0đ");
     $(".cart-content .price-order .price").html("0đ");
-
   });
 });

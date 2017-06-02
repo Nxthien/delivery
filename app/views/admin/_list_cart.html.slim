@@ -8,7 +8,7 @@
           tr
             td ID
             td Money Total
-            td Distance
+            td Item
             td Address
             td Phone
             td Custumer
@@ -17,8 +17,11 @@
         - @carts.each do |cart|
           tr
             td #{cart.id}
-            td #{cart.sum_money}
-            td #{cart.distant}
+            td #{cart.sum_money}.000 đ 
+            td 
+              ul style="list-style: none; padding-left: 0px !important"
+                - cart.items.each do |item|
+                  li #{item.name}
             td #{cart.address}
             td #{cart.phone}
             td #{cart.customer}
